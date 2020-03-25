@@ -1,5 +1,3 @@
-```cs
-
 using System;
 
 namespace courseTwoProjectOne
