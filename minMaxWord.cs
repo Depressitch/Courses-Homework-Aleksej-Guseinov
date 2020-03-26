@@ -11,25 +11,29 @@ public class Program
 	}
 	static void FindMinMaxWord(string text) //функция на нахождение самого длинного и короткого слова
 	{
-		int minLength = 0;
+		int minLength = text.Length;
 		int minLengthI = 0;
-		int maxLength = 0;
-		int maxLengthI = text.Length;
+		int maxLength = 1;
+		int maxLengthI = 0;
 		for (int i = 0; text[i] == '.'; i++)
 		{
 			int wordLength = 0;
-			for (int j = 0; text[j] == ' ' || char.IsPunctuation(text, j); j++)
+			for (int j = 0; !char.IsLetter(text, j); j++)
 			{
 				wordLength++;
 			}
-			if (wordLength > maxLength)
+			if (maxLength < wordLength)
 			{
 				maxLength = wordLength;
+				maxLengthI = wordLength;
 			}
-			if (wordLength < minLength)
+			if (minLength > wordLength)
 			{
-				minLength = minLength > wordLength ? wordLength : minLength;
+				minLength = wordLength;
+				minLengthI = wordLength;
 			}
+			i += wordLength;
 		}
+		Console.WriteLine($"Longest word: {text.Substring(maxLengthI, maxLength)} \nShortest word: {text.Substring(minLengthI, minLength)}");
 	}
 }
