@@ -1,0 +1,35 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Input your line: ");
+		string input = Console.ReadLine();
+		FindMinMaxWord(input);
+		Console.ReadLine();
+	}
+	static void FindMinMaxWord(string text) //функция на нахождение самого длинного и короткого слова
+	{
+		int minLength = 0;
+		int minLengthI = 0;
+		int maxLength = 0;
+		int maxLengthI = text.Length;
+		for (int i = 0; text[i] == '.'; i++)
+		{
+			int wordLength = 0;
+			for (int j = 0; text[j] == ' ' || char.IsPunctuation(text, j); j++)
+			{
+				wordLength++;
+			}
+			if (wordLength > maxLength)
+			{
+				maxLength = wordLength;
+			}
+			if (wordLength < minLength)
+			{
+				minLength = minLength > wordLength ? wordLength : minLength;
+			}
+		}
+	}
+}
