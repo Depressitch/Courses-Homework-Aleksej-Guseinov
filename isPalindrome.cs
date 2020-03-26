@@ -9,13 +9,13 @@ public class Program
 		isPalindrome(input);
 		Console.ReadLine();
 	}
-	static void isPalindrome(string text) //функция на проверку является ли строка палиндромом
+	static void isPalindrome(string text) //С„СѓРЅРєС†РёСЏ РЅР° РїСЂРѕРІРµСЂРєСѓ СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃС‚СЂРѕРєР° РїР°Р»РёРЅРґСЂРѕРјРѕРј
 	{
-		string modText = text; 	//создаём другую строку, в которой не будет пробелов
-		dltSpaces(modText); 	//удаляем из строки пробелы
+		string modText = text; 	//СЃРѕР·РґР°С‘Рј РґСЂСѓРіСѓСЋ СЃС‚СЂРѕРєСѓ, РІ РєРѕС‚РѕСЂРѕР№ РЅРµ Р±СѓРґРµС‚ РїСЂРѕР±РµР»РѕРІ
+		dltSpaces(modText); 	//СѓРґР°Р»СЏРµРј РёР· СЃС‚СЂРѕРєРё РїСЂРѕР±РµР»С‹
 		for (int i = 0; i < modText.Length / 2; i++)
 		{
-			if(modText[i] != modText[text.Length - i - 1]) 	//если находится не "зеркальный" элемент, то сразу выводится текст о том, что это не палиндром + заканчивается функция
+			if(modText[i] != modText[text.Length - i - 1]) 	//РµСЃР»Рё РЅР°С…РѕРґРёС‚СЃСЏ РЅРµ "Р·РµСЂРєР°Р»СЊРЅС‹Р№" СЌР»РµРјРµРЅС‚, С‚Рѕ СЃСЂР°Р·Сѓ РІС‹РІРѕРґРёС‚СЃСЏ С‚РµРєСЃС‚ Рѕ С‚РѕРј, С‡С‚Рѕ СЌС‚Рѕ РЅРµ РїР°Р»РёРЅРґСЂРѕРј + Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ С„СѓРЅРєС†РёСЏ
 			{
 				Console.WriteLine("This line is not a palindrome.");
 				return;
@@ -23,7 +23,7 @@ public class Program
 		}
 		Console.WriteLine("This line is a palindrome.");
 	}
-	static void dltSpaces(string text) 	//функция удаляет пробелы из строки
+	static void dltSpaces(string text) 	//С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ РїСЂРѕР±РµР»С‹ РёР· СЃС‚СЂРѕРєРё
 	{
 		for (int i = 0; i < text.Length; i++)
 		{
