@@ -15,7 +15,8 @@ public class Program
 		dltSpaces(modText); 	//удаляем из строки пробелы
 		for (int i = 0; i < modText.Length / 2; i++)
 		{
-			if(modText[i] != modText[text.Length - i - 1]) 	//если находится не "зеркальный" элемент, то сразу выводится текст о том, что это не палиндром + заканчивается функция
+			//если находится не "зеркальный" элемент, то сразу выводится текст о том, что это не палиндром + заканчивается функция
+			if(modText[i] != modText[text.Length - i - 1]) 
 			{
 				Console.WriteLine("This line is not a palindrome.");
 				return;
