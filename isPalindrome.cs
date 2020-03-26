@@ -6,13 +6,13 @@ public class Program
 	{
 		Console.WriteLine("Input your line: ");
 		string input = Console.ReadLine();
-		isPalindrome(input);
+		IsPalindrome(input);
 		Console.ReadLine();
 	}
-	static void isPalindrome(string text) //функция на проверку является ли строка палиндромом
+	static void IsPalindrome(string text) //функция на проверку является ли строка палиндромом
 	{
 		string modText = text; 	//создаём другую строку, в которой не будет пробелов
-		dltSpaces(modText); 	//удаляем из строки пробелы
+		DltSpaces(modText); 	//удаляем из строки пробелы
 		for (int i = 0; i < modText.Length / 2; i++)
 		{
 			//если находится не "зеркальный" элемент, то сразу выводится текст о том, что это не палиндром + заканчивается функция
@@ -24,7 +24,7 @@ public class Program
 		}
 		Console.WriteLine("This line is a palindrome.");
 	}
-	static void dltSpaces(string text) 	//функция удаляет пробелы из строки
+	static void DltSpaces(string text) 	//функция удаляет пробелы из строки
 	{
 		for (int i = 0; i < text.Length; i++)
 		{
