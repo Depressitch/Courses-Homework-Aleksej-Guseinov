@@ -6,13 +6,13 @@ namespace deleteWithSharp
     {
 		public static void Main()
 		{
-			Console.WriteLine("Input your line: ");
+			Console.Write("Input your line: ");
 			string input = Console.ReadLine();
-			input = DeleteWithSharpen(input);
+			input = DelWithSharp(input);
 			Console.WriteLine("Your decoded line: " + input);
 			Console.ReadLine();
 		}
-		static string DeleteWithSharpen(string text)
+		static string DelWithSharp(string text)
 		{
 			for (int i = 0; i < text.Length; i++)
 			{
@@ -34,4 +34,3 @@ namespace deleteWithSharp
 		}
 	}
 }
-
