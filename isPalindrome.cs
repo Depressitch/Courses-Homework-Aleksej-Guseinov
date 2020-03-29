@@ -1,28 +1,42 @@
 using System;
 
-public class Program
+namespace isPalindrome
 {
-	public static void Main()
-	{
-		Console.WriteLine("Input your line: ");
-		string input = Console.ReadLine();
-		IsPalindrome(input);
-		Console.ReadLine();
-	}
-	static void IsPalindrome(string text) //функция на проверку является ли строка палиндромом
-	{
-		string modText = text;  //создаём другую строку, в которой не будет пробелов
-		modText = modText.ToLower(); //делаем все буквы нижнего регистра
-		modText = modText.Replace(" ", ""); //удаляем пробелы
-		for (int i = 0; i < modText.Length / 2; i++)
+    class Program
+    {
+		public static void Main()
 		{
-			//если находится не "зеркальный" элемент, то сразу выводится текст о том, что это не палиндром + заканчивается функция
-			if (modText[i] != modText[modText.Length - i - 1])
-			{
-				Console.WriteLine("This line is not a palindrome.");
-				return;
-			}
+			Console.Write("Input your line: ");
+			string input = Console.ReadLine();
+			//на консоль всегда выведется "this line is a palindrom", а если функция вернёт false
+			Console.WriteLine("This line is" + ((IsPalindrome(input) ? "" : " not") + " a palindrom"));
+			Console.ReadLine();
 		}
-		Console.WriteLine("This line is a palindrome.");
+		static bool IsPalindrome(string text) //функция на проверку является ли строка палиндромом
+		{
+			text = text.ToLower(); //делаем все буквы нижнего регистра
+			text = DltNotLetters(text); //удаляем из строки всё кроме букв
+			for (int i = 0; i < text.Length / 2; i++)
+			{
+				//если находится не "зеркальный" элемент, то сразу выходим из функции с false
+				if (text[i] != text[text.Length - i - 1])
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+		static string DltNotLetters(string text)
+		{
+			for (int i = 0; i < text.Length; i++)
+			{
+				if (!char.IsLetter(text, i))
+				{
+					text = text.Remove(i--, 1);
+					//i-- необходим для того, чтобы индекс сдивнулся назад, так как при удалении символа по факту индекс перескачит на 2 от оригинала
+				}
+			}
+			return text;			
+		}
 	}
 }
