@@ -1,6 +1,6 @@
 using System;
 
-namespace hwFourTaskOne
+namespace isPrime
 {
     class Program
     {
@@ -19,8 +19,6 @@ namespace hwFourTaskOne
 
             #endregion
 
-            #region finding out if it's prime
-
             Console.WriteLine("================================\n" +
                 $"List of prime numbers from 0 to {number}:");
             for (int i = 0; i <= number; i++) 
@@ -31,17 +29,21 @@ namespace hwFourTaskOne
                 }
             }
 
-            #endregion
-
             Console.ReadKey();
         }
         static bool IsPrime(int num)  //функция для определения является ли число простым
         {
+            //дополнительное условие, чтобы 0 и 1 не воспринимались как простые, а также сократить цикл for с j++ до j+=2
+            if (num % 2 == 0 || num < 2) 
+            {
+                return false;
+            }
             /*
-             цикл идёт только до числа, которое равно половине заданного, так как число больше явно не будет делить нацело
-             также есть дополнительное условие - num < 2 - которое необходимо для того, чтобы 0 и 1 не воспринимались как простые числа
+             вводим переменную для условия продолжения цикла, чтобы не высчитывать корень в каждой итеррации 
+             наименьший делитель числа не превосходит корень этого числа
             */
-            for (int j = 2; j <= num / 2 || num < 2; j++)
+            int sqrtNum = (int)Math.Sqrt(num); 
+            for (int j = 3; j <= sqrtNum; j+=2)
             {
                 if (num % j == 0) //если делится каким-либо числом нацело, то false
                 {
@@ -51,3 +53,4 @@ namespace hwFourTaskOne
             return true;
         }
     }
+}
