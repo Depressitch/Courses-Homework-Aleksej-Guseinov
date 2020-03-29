@@ -13,28 +13,25 @@ public class Program
 	{
 		for (int i = 0; i < text.Length; i++)
 		{
-			int wordLength = 0;
-			const int delLetters = 5;
-			for (int j = i; j < text.Length && char.IsLetter(text, j); j++)
+			int wordLength = 0; //переменная для записи длины слова
+			const int delLetters = 5; //константа, которая определяет какой длины должно быть слова чтобы его укоротить
+			//проверяем сначала j < text.Length чтобы не выйти за пределы строки
+			for (int j = i; j < text.Length && char.IsLetter(text, j); j++) 
 			{
 				wordLength++;
 			}
-			if (wordLength >= delLetters)
+			if (wordLength > delLetters) 
 			{
+			//если длина слова больше delLetters, то удаляем элементы строки начиная с (начало слова+delLetters) и вставляем в конец слова "..."
 				text = text.Remove(i + delLetters, wordLength - delLetters);
 				text = text.Insert(i + delLetters, "...");
-				i += delLetters + 3;
+				i += delLetters + 3; //после сдвигаем i на delLetters + 3 символа вперёд чтобы не проходить по числу+троеточию заново
 			} 
 			else
 			{
-				i += wordLength;
+				i += wordLength; // если длина слова меньше или равна 5, то начинаем сдвигаем i на кол-во букв и переходим к следующему слову
 			}
 		}
 		Console.WriteLine(text);
 	}
 }
-/*
-также есть другой вариант для построение алгоритма - можно, как только wordLength >=5, удалять символы до момента, пока не дойдём до
-не буквы, после чего вставить "...", что избавит от необходимости использования вложенного цикла. Увы, времени на переписывания
-кода у меня нет :(
-*/
